@@ -1,20 +1,13 @@
 import socket
-import select
 import sys
 from _thread import *
 import random
 import time
 
-# c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# ip = input()
-# port = int(input())
-# ip, port = '127.0.0.1', 7788
-# c.connect((ip, port))
 
 def send_message(c):
     msg = "EVENT " + str(t)
     c.send(msg.encode('ascii'))
-    # print("Sending message to "+c.getpeername()[0]+" from "+s.getpeername()[0])
 
 def int_event():
     global t
@@ -50,7 +43,6 @@ def events():
 t = 0
 
 s = socket.socket()
-print("Please enter the server port ")
 port = int(sys.argv[1])
 s.bind(('', port))
 s.listen(10)
